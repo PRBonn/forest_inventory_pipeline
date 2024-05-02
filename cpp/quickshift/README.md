@@ -1,0 +1,1 @@
+This directory contains heavily modified code from the original [quickshift repository](https://github.com/google/quickshift/tree/master) which was distributed under the `LICENSE` file included in this directory.

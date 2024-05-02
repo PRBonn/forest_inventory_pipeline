@@ -1,0 +1,6 @@
+Dockerfile
+.*
+*.log
+*.tmp
+*.bak
+*.csv

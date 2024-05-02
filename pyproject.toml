@@ -1,0 +1,70 @@
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "forest_inventory_pipeline"
+version = "0.0.1"
+dependencies = ["open3d==0.17.0", "typer[all]", "cloth-simulation-filter"]
+# TODO: need to switch the typing hints to support 3.8
+requires-python = ">=3.10"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    { name = "Meher Malladi", email = "rm.meher97@gmail.com" },
+]
+keywords = [
+    "LiDAR",
+    "Forestry",
+    "Segmentation",
+    "DBH",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Other Audience",
+    "Intended Audience :: Science/Research",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/PRBonn/forest_inventory_pipeline"
+
+[project.scripts]
+fip = "forest_inventory_pipeline.fip:cli"
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-datadir"]
+
+[tool.scikit-build]
+wheel.packages = ["python/forest_inventory_pipeline"]
+build-dir = "build/{wheel_tag}"
+cmake.version = ">=3.28"
+editable.mode = "redirect"
+editable.rebuild = true
+editable.verbose = true
+
+[tool.cibuildwheel]
+archs = ["auto64"]
+build = "cp310-*"
+skip = ["*-musllinux*",  "pp*"]
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+testpaths = ['tests']

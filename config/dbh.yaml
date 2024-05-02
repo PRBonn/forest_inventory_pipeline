@@ -1,0 +1,29 @@
+fitting:
+  # if not specified, falls back to the value specified under cluster
+  # voxel_size: 0.15 # used for calculating inliers
+  ransac_iterations: 10000 # can be left default
+
+cluster:
+  k: 150 # number of nearest neighbours
+  beta: 0.5 # quickshift density fluctuation parameter. 1 clusters everything as one instance, 0 every point as one instance
+  voxel_size: 0.15 # for downsampling. Can be set to None
+  # following can be left default
+  min_z: 1.0 # height below which to clip the cloud
+  max_z: 4.0 # height above which to clip the cloud
+  upsample: false # upsample the clustered cloud back to original resolution if voxel_size was specified
+
+# can be left default
+normalize:
+  k: 5 # number of nearest neighbours to use for Inverse Distance Weighting (IDW)
+  p: 2 # power factor for IDW
+  rmax: 10.0 # max distance for knn queries
+
+# can be left default
+ground_seg:
+  # CSF parameters. Following are defaults, please refer to CSF documentation for further details
+  bSloopSmooth: false
+  cloth_resolution: 0.5
+  rigidness: 3
+  time_step: 0.65
+  class_threshold: 0.5
+  iterations: 500

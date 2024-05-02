@@ -1,0 +1,25 @@
+x-base-fip: &base-fip
+  image: fip
+  build:
+    context: ../
+    dockerfile: docker/Dockerfile
+    args:
+      - UID=${UID:-1000}
+      - GID=${GID:-1000}
+  volumes:
+    - "./:/home/dev/forest_inventory_pipeline"
+    # mount a data directory here
+    # - "<some/data/directory>:/data"
+services:
+  fip:
+    container_name: fip_container
+    <<: *base-fip
+
+  fip_instance:
+    container_name: fip_instance_container
+    <<: *base-fip
+    command: python scripts/evaluation/instance_seg.py /data/ground_truth
+  fip_dbh:
+    container_name: fip_dbh_container
+    <<: *base-fip
+    command: python scripts/evaluation/dbh_estimation.py /data/ground_truth/ /data/inventory
