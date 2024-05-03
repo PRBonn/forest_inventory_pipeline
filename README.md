@@ -3,14 +3,13 @@
     <a href="#setup"><img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" /></a>
     <a href="#usage"><img src="https://img.shields.io/badge/python-3670A0?style=flat-square&logo=python&logoColor=ffdd54" /></a>
     <a href="https://www.ipb.uni-bonn.de/pdfs/malladi2024icra.pdf"><img src="https://img.shields.io/badge/Paper-pdf-<COLOR>.svg?style=flat-square" /></a>
-    <a href="https://lbesson.mit-license.org/"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" /></a>
 
 <p>
   <img src="doc/motivation.png" width="400"/>
 </p>
 
 </div>
-
 
 ## Setup
 
@@ -78,14 +77,15 @@ fip dbh --help
 Example runs:
 
 ```bash
-# relevant output of the following is an instance_segmented_cloud.ply  
+# relevant output of the following is an instance_segmented_cloud.ply
 fip instance /data/input_cloud.ply --output /output -c config/instance.yaml
 ```
 
 In case some stages have been run earlier, corresponding skip flags can be used.
+
 ```bash
 # relevant output of the following is cylinders.pickle and tree_dbh.csv
-fip dbh /data/input_cloud.ply --output output -c config/dbh.yaml --skip_gs --skip_norm --skip_cluster 
+fip dbh /data/input_cloud.ply --output output -c config/dbh.yaml --skip_gs --skip_norm --skip_cluster
 ```
 
 If the `--output` flag is specified, only then do results get written to disk.
@@ -126,7 +126,7 @@ If you use our code in your academic work, please cite the corresponding [paper]
   booktitle = icra,
   year = 2024,
   codeurl = {https://github.com/PRBonn/forest_inventory_pipeline}
-} 
+}
 ```
 
 ## License
