@@ -18,7 +18,6 @@ A docker image is provided and details are described in the [Docker](#docker) se
 ### Dependencies
 
 This code has been developed and tested on Ubuntu 22.04 LTS using Python 3.10.
-Currently, we do not support Python 3.8, though it is planned.
 
 System dependencies:
 
@@ -95,11 +94,7 @@ If the `--output` flag is specified, only then do results get written to disk.
 To test and use the approach, you can use the provided Docker image and some simple experiment scripts in `scripts/evaluation`.
 These scripts need the data in a slightly specific format detailed further in their documentation (use `--help` when running the cli).
 
-Unfortunately, the data used for the paper was collected in context of the DigiForest EU project and is under NDA.
-This data is not yet released.
-However, it is planned to soon make a labeled forestry dataset release under the DigiForest project which this repository will also then support.
-This dataset is expected to be released latest by October 2024.
-Apologies for the inconvenience.
+Please see the [DigiForests dataset](https://github.com/PRBonn/digiforests) for some forestry data you can run the approach on.
 
 To run an instance segmentation experiment, `cd` into the `docker/` folder, modify the `compose.yaml` file to have the appropriate data mount, and then run:
 
